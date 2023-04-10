@@ -1,0 +1,120 @@
+@font-face {
+  font-family: "MavenPro";
+  src: url("fonts/MavenPro.ttf");
+  font-weight: 200 300;
+}
+
+:root {
+  --black: rgb(0, 0, 0);
+  --white: rgb(255, 255, 255);
+  --font-fallback: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-sans;
+}
+
+html {
+  font-size: 12px;
+}
+
+body {
+  font-family: "MavenPro", var(--font-fallback);
+  background-color: var(--black);
+  color: var(--white);
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 0.5rem;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    transform: scaleY(1);
+    width: 100%;
+  }
+
+  100% {
+    transform: scaleY(0.3);
+    width: 33%;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+#container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  opacity: 0;
+  animation: 2s ease-in 2s forwards fade-in, 2s ease-out 2s forwards slide-up;
+}
+
+.subtitle {
+  text-align: center;
+  opacity: 0;
+  animation: 2s ease-in 2s forwards fade-in, 2s ease-out 2s forwards slide-down;
+}
+
+.divider-container {
+  width: 100%;
+  height: 4px;
+  min-width: 20rem;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.divider {
+  margin: auto;
+  opacity: 0;
+  height: 4px;
+  background-color: var(--white);
+  width: 100%;
+  animation: 2s ease-in-out 2s forwards shrink, 2s ease-out 1s forwards fade-in,
+    1s ease-in 8s forwards fade-out;
+}
